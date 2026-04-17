@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보처리방침 — Unfiltered Swim</title>
+  <meta name="description" content="Unfiltered Swim 앱의 개인정보처리방침입니다." />
+
+  <link rel="icon" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'swim-pool':      'hsl(200, 80%, 45%)',
+            'swim-pool-dark': 'hsl(200, 80%, 32%)',
+            'swim-teal':      'hsl(178, 68%, 38%)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <style>
+    body {
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: linear-gradient(180deg, hsl(200, 60%, 92%), hsl(200, 55%, 87%));
+      min-height: 100vh;
+    }
+    .gradient-pool { background: linear-gradient(135deg, hsl(200, 80%, 45%), hsl(178, 68%, 38%)); }
+    .glass-card {
+      background: linear-gradient(135deg, hsla(200, 55%, 97%, 0.95), hsla(200, 50%, 94%, 0.85));
+      backdrop-filter: blur(8px);
+    }
+    .logo-img { width:100%; height:100%; object-fit:contain; }
+
+    .prose-custom h2 {
+      font-size: 1.2rem; font-weight: 700; color: hsl(200, 80%, 32%);
+      margin-top: 2rem; margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem; border-bottom: 2px solid hsla(200, 80%, 45%, 0.15);
+    }
+    .prose-custom h3 { font-size: 1.02rem; font-weight: 600; color: #1E293B; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .prose-custom p { margin-bottom: 0.75rem; line-height: 1.8; color: #334155; }
+    .prose-custom ul { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: disc; }
+    .prose-custom ul li { margin-bottom: 0.4rem; line-height: 1.75; color: #334155; }
+    .prose-custom ol { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: decimal; }
+    .prose-custom ol li { margin-bottom: 0.4rem; line-height: 1.75; color: #334155; }
+    .prose-custom strong { color: #0F172A; font-weight: 600; }
+    .prose-custom table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    .prose-custom th, .prose-custom td { border: 1px solid hsla(200, 60%, 80%, 0.4); padding: 0.6rem 0.8rem; text-align: left; }
+    .prose-custom th { background: hsla(200, 70%, 95%, 0.6); font-weight: 600; color: hsl(200, 80%, 25%); }
+    .prose-custom a { color: hsl(200, 80%, 45%); text-decoration: underline; }
+  </style>
+</head>
+
+<body class="text-slate-800 antialiased">
+
+  <!-- 헤더 -->
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-swim-pool/10">
+    <nav class="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl overflow-hidden bg-white shadow-sm">
+          <img src="icon.png" alt="Unfiltered Swim" class="logo-img" />
+        </div>
+        <span class="font-bold text-base text-slate-900">Unfiltered Swim</span>
+      </a>
+      <a href="index.html" class="text-sm text-slate-600 hover:text-swim-pool transition-colors">← 홈으로</a>
+    </nav>
+  </header>
+
+  <!-- 본문 -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">개인정보처리방침</h1>
+    <p class="text-sm text-slate-500 mb-10">시행일: 2025년 4월 12일 · 운영자: Unfiltered Swim</p>
+
+    <div class="glass-card rounded-2xl p-6 sm:p-10 border border-swim-pool/10 prose-custom">
+
+      <p>
+        Unfiltered Swim(이하 "회사")은 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령이 정한 바를 준수하여, 적법하게 개인정보를 처리하고 안전하게 관리합니다. 본 개인정보처리방침은 Unfiltered Swim 모바일 애플리케이션(이하 "서비스")에 적용됩니다.
+      </p>
+
+      <h2>제1조 (수집하는 개인정보)</h2>
+      <p>회사는 서비스 제공을 위해 다음 정보를 수집합니다.</p>
+
+      <h3>가. Google 로그인을 통해 자동 수집</h3>
+      <ul>
+        <li>이메일 주소</li>
+        <li>프로필 이름</li>
+      </ul>
+
+      <h3>나. 이용자가 직접 입력하는 정보</h3>
+      <ul>
+        <li>성별, 나이, 신장, 체중</li>
+        <li>안정시 심박수, 최대 심박수</li>
+        <li>주력 영법, 훈련 목표 (선택)</li>
+        <li>수영 기록 (거리, 시간, 영법별 데이터, 스트로크 수, SWOLF 등)</li>
+      </ul>
+
+      <h3>다. 서비스 이용 중 자동 수집</h3>
+      <ul>
+        <li>수영 기록 사용 패턴, 앱 이용 시간</li>
+        <li>오류 정보, 기기 식별자, OS 종류 및 버전, 앱 버전</li>
+        <li>FCM 푸시 토큰 (앱 내 알림 발송용)</li>
+        <li>Firebase Analytics 익명 통계 데이터</li>
+      </ul>
+
+      <h2>제2조 (개인정보의 이용 목적)</h2>
+      <p>수집한 개인정보는 다음 목적으로만 사용합니다.</p>
+      <ul>
+        <li>수영 퍼포먼스 분석 및 맞춤형 코칭 제공</li>
+        <li>회원 식별 및 본인 확인 (Google OAuth 로그인)</li>
+        <li>서비스 개선 및 오류 처리</li>
+        <li>서비스 이용 현황 분석 및 통계 (앱 사용 패턴, 기능 이용 빈도 등)</li>
+        <li>멤버십 등급 관리 및 혜택 제공</li>
+        <li>알림 발송 (운동 리마인더, 분석 리포트 등)</li>
+        <li>고객 문의 응대</li>
+      </ul>
+
+      <h2>제3조 (개인정보의 제3자 제공)</h2>
+      <p>
+        회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 단, 다음의 경우에는 예외로 합니다.
+      </p>
+      <ul>
+        <li>이용자가 사전에 동의한 경우</li>
+        <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+      </ul>
+
+      <h2>제4조 (개인정보 처리 위탁)</h2>
+      <p>
+        회사는 원활한 서비스 제공을 위해 다음과 같이 개인정보 처리 업무를 위탁하고 있으며, 수탁자는 위탁 목적 외 개인정보를 독자적으로 이용할 수 없습니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>수탁자</th>
+            <th>위탁 업무</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Supabase Inc. (미국)</td>
+            <td>회원 인증, 데이터베이스 관리</td>
+          </tr>
+          <tr>
+            <td>Google LLC</td>
+            <td>OAuth 로그인, Firebase 푸시 알림, Analytics, AdMob 광고, Play 결제</td>
+          </tr>
+          <tr>
+            <td>Microsoft Azure</td>
+            <td>OCR(이미지 인식) 처리</td>
+          </tr>
+          <tr>
+            <td>RevenueCat Inc.</td>
+            <td>구독 결제 상태 관리</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        OCR 처리를 위해 사용자가 업로드한 스크린샷은 분석 목적으로만 일시적으로 처리되며, 분석 완료 후 즉시 폐기됩니다. 별도로 저장되지 않습니다.
+      </p>
+
+      <h2>제5조 (개인정보의 보관 및 파기)</h2>
+      <p>
+        이용자가 계정을 삭제하면 관련 개인정보는 30일 이내에 완전히 파기됩니다. 단, 관련 법령에 따라 보관이 필요한 경우 해당 기간 동안만 보관 후 파기합니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>구분</th><th>보유 기간</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>회원 정보 (이메일, 이름, 신체 정보)</td><td>회원 탈퇴 시까지 (탈퇴 후 30일 이내 파기)</td></tr>
+          <tr><td>수영 기록</td><td>회원 탈퇴 시까지 (사용자 기기 내 로컬 저장 우선)</td></tr>
+          <tr><td>서비스 이용 기록 (Firebase Analytics)</td><td>최대 14개월 (Google 정책에 따름)</td></tr>
+          <tr><td>전자상거래 관련 기록 (결제, 환불)</td><td>5년 (전자상거래법)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>파기 방법</h3>
+      <ul>
+        <li><strong>전자적 파일</strong> — 복구 및 재생이 불가능한 방법으로 영구 삭제</li>
+        <li><strong>출력물</strong> — 분쇄 또는 소각</li>
+      </ul>
+
+      <h2>제6조 (이용자의 권리)</h2>
+      <p>이용자는 언제든지 다음 권리를 행사할 수 있습니다.</p>
+      <ul>
+        <li>개인정보 열람 요구</li>
+        <li>오류가 있을 경우 정정 요구</li>
+        <li>삭제 요구 (회원 탈퇴)</li>
+        <li>처리 정지 요구</li>
+      </ul>
+      <p>
+        위 권리 행사는 앱 내 설정 메뉴 또는 이메일(<a href="mailto:unfiltered.swim.official@gmail.com">unfiltered.swim.official@gmail.com</a>)을 통해 요청하실 수 있으며, 회사는 지체 없이 조치합니다.
+      </p>
+
+      <h2>제7조 (광고 서비스)</h2>
+      <p>
+        서비스 내 광고 표시를 위해 광고 SDK(Google AdMob)가 사용될 수 있습니다. 광고 SDK는 광고 최적화에 필요한 최소한의 정보(기기 식별자 등)를 자체적으로 수집할 수 있으며, 수영 기록 등 서비스 내 개인 데이터는 광고 목적으로 사용되지 않습니다.
+        구독 가입 후에는 광고가 표시되지 않습니다.
+      </p>
+
+      <h2>제8조 (개인정보의 안전성 확보 조치)</h2>
+      <ul>
+        <li><strong>관리적 조치</strong> — 내부관리계획 수립·시행, 접근 권한 관리</li>
+        <li><strong>기술적 조치</strong> — 개인정보 암호화 전송(HTTPS/TLS), DB 접근 제어, 보안 패치 정기 적용</li>
+        <li><strong>물리적 조치</strong> — 클라우드 서비스 제공자(Supabase, Google)의 보안 인증된 데이터 센터 활용</li>
+      </ul>
+
+      <h2>제9조 (만 14세 미만 아동의 개인정보)</h2>
+      <p>
+        회사는 만 14세 미만 아동의 회원 가입을 받지 않습니다. 회원 가입 시 만 14세 이상임을 확인하며, 만 14세 미만임이 확인될 경우 즉시 회원 가입을 거부하고 관련 정보를 파기합니다.
+      </p>
+
+      <h2>제10조 (개인정보 보호책임자)</h2>
+      <p>
+        회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위해 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+      </p>
+      <ul>
+        <li><strong>서비스명:</strong> Unfiltered Swim</li>
+        <li><strong>운영자:</strong> Unfiltered Swim</li>
+        <li><strong>이메일:</strong> <a href="mailto:unfiltered.swim.official@gmail.com">unfiltered.swim.official@gmail.com</a></li>
+        <li><strong>카카오톡 채널:</strong> <a href="http://pf.kakao.com/_DxjlMX" target="_blank" rel="noopener noreferrer">@unfilteredswim</a></li>
+        <li><strong>앱 내:</strong> 설정 &gt; 문의하기</li>
+      </ul>
+
+      <h2>제11조 (권익침해 구제 방법)</h2>
+      <p>개인정보 침해에 대한 신고나 상담이 필요하신 경우 아래 기관에 문의하실 수 있습니다.</p>
+      <ul>
+        <li>개인정보침해신고센터 (privacy.kisa.or.kr / 국번 없이 118)</li>
+        <li>개인정보분쟁조정위원회 (kopico.go.kr / 1833-6972)</li>
+        <li>대검찰청 사이버수사과 (spo.go.kr / 1301)</li>
+        <li>경찰청 사이버수사국 (ecrm.cyber.go.kr / 국번 없이 182)</li>
+      </ul>
+
+      <h2>제12조 (개인정보처리방침의 변경)</h2>
+      <p>
+        본 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 앱 내 공지사항을 통하여 고지합니다.
+      </p>
+
+      <p class="mt-8 pt-4 border-t border-slate-200 text-sm text-slate-500">
+        <strong>공고일자:</strong> 2025년 4월 12일<br />
+        <strong>시행일자:</strong> 2025년 4월 12일
+      </p>
+
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="index.html" class="inline-block px-6 py-3 rounded-xl bg-white border border-swim-pool/20 text-swim-pool-dark font-semibold hover:border-swim-pool hover:shadow-md transition-all">
+        ← 홈으로 돌아가기
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 mt-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center text-xs">
+      © 2026 Unfiltered Swim. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

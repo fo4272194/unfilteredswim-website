@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Unfiltered Swim — 나를 읽는 정밀 수영 가이드</title>
+  <meta name="description" content="수영장에서 놓친 것들을 데이터로 찾아드립니다. SWOLF, 페이스, 추진 효율, 칼로리까지 정밀 분석하는 한국형 수영 분석 앱." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Unfiltered Swim — 나를 읽는 정밀 수영 가이드" />
+  <meta property="og:description" content="수영장에서 놓친 것들, 데이터로 찾아드려요." />
+  <meta property="og:image" content="https://unfilteredswim.app/icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://unfilteredswim.app" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="icon" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // 앱 index.css 의 HSL 변수를 그대로 가져와 통일
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'swim-pool':       'hsl(200, 80%, 45%)',
+            'swim-pool-light': 'hsl(200, 70%, 80%)',
+            'swim-pool-dark':  'hsl(200, 80%, 32%)',
+            'swim-ocean':      'hsl(205, 82%, 42%)',
+            'swim-teal':       'hsl(178, 68%, 38%)',
+            'swim-coral':      'hsl(16, 85%, 55%)',
+            'swim-gold':       'hsl(45, 93%, 48%)',
+            'swim-purple':     'hsl(262, 72%, 50%)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Pretendard (한국어 시스템 폰트) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      /* 앱 index.css 와 동일한 청록 배경 그라디언트 */
+      background: linear-gradient(180deg, hsl(200, 60%, 92%), hsl(200, 55%, 87%));
+      min-height: 100vh;
+    }
+
+    /* 앱 시그니처 그라디언트 (swim-pool → swim-teal) */
+    .gradient-pool {
+      background: linear-gradient(135deg, hsl(200, 80%, 45%), hsl(178, 68%, 38%));
+    }
+    .text-gradient-pool {
+      background: linear-gradient(135deg, hsl(200, 80%, 45%), hsl(178, 68%, 38%));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* 앱 glass-card 패턴 */
+    .glass-card {
+      background: linear-gradient(135deg, hsla(200, 55%, 97%, 0.9), hsla(200, 50%, 94%, 0.7));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* FAQ 아코디언 */
+    details[open] summary .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.2s; }
+
+    /* 로고 이미지 */
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: inherit;
+    }
+  </style>
+</head>
+
+<body class="text-slate-800 antialiased">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       헤더
+  ═══════════════════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-swim-pool/10">
+    <nav class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl overflow-hidden bg-white shadow-sm">
+          <img src="icon.png" alt="Unfiltered Swim 로고" class="logo-img" />
+        </div>
+        <span class="font-bold text-base text-slate-900">Unfiltered Swim</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#features" class="hover:text-swim-pool transition-colors">기능</a>
+        <a href="#membership" class="hover:text-swim-pool transition-colors">멤버십</a>
+        <a href="#faq" class="hover:text-swim-pool transition-colors">FAQ</a>
+        <a href="#contact" class="hover:text-swim-pool transition-colors">문의</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Hero (앱 이름이 메인, 슬로건이 서브)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
+
+      <!-- 베타 배지 -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white/80 border border-swim-pool/20 text-xs font-semibold text-swim-pool-dark">
+        🏊 베타 테스트 진행 중
+      </div>
+
+      <!-- 큰 로고 -->
+      <div class="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-6 rounded-3xl overflow-hidden bg-white shadow-xl shadow-swim-pool/20">
+        <img src="icon.png" alt="Unfiltered Swim" class="logo-img" />
+      </div>
+
+      <!-- 앱 이름 (메인) -->
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-gradient-pool mb-3">
+        Unfiltered Swim
+      </h1>
+
+      <!-- 슬로건 (서브) -->
+      <p class="text-xl sm:text-2xl font-bold text-slate-700 mb-6">
+        나를 읽는 정밀 수영 가이드
+      </p>
+
+      <!-- 설명 -->
+      <p class="max-w-xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed mb-10">
+        수영장에서 놓친 것들,<br class="sm:hidden" />
+        데이터로 찾아드려요.
+      </p>
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <a
+          href="#features"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl gradient-pool text-white font-bold shadow-lg shadow-swim-pool/30 hover:shadow-xl hover:scale-[1.02] transition-all"
+        >
+          앱 자세히 보기
+        </a>
+        <a
+          href="#contact"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white/80 backdrop-blur border-2 border-swim-pool/20 text-swim-pool-dark font-bold hover:border-swim-pool transition-all"
+        >
+          문의하기
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-500">
+        Android · 베타 빌드 / iOS 출시 예정
+      </p>
+    </div>
+
+    <!-- 데코 배경 원 -->
+    <div class="absolute top-20 -left-32 w-72 h-72 bg-swim-pool/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute top-40 -right-32 w-72 h-72 bg-swim-teal/15 rounded-full blur-3xl -z-10"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Features — 6개 카드
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section id="features" class="py-16 sm:py-20 bg-white/60 backdrop-blur">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
+          이런 분석을 해드려요
+        </h2>
+        <p class="text-slate-600 text-base">
+          단순 기록만 보여주는 앱이 아닙니다.<br class="sm:hidden" />
+          데이터에 숨겨진 의미를 풀어드려요.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 1. SWOLF 등급 진단 -->
+        <div class="p-6 rounded-2xl glass-card border border-swim-pool/10 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-swim-pool/10 flex items-center justify-center text-2xl mb-4">📊</div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">SWOLF 등급 진단</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            영법별·성별·연령 기준으로 SWOLF 등급을 평가해 내 수영 효율을 한눈에 보여줘요.
+          </p>
+        </div>
+
+        <!-- 2. 영법별 기술 분석 -->
+        <div class="p-6 rounded-2xl glass-card border border-swim-pool/10 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-swim-pool/10 flex items-center justify-center text-2xl mb-4">🏊</div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">영법별 기술 분석</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            자유형·배영·평영·접영 각각 SPI(추진), SRI(스트로크), KPE(킥) 효율을 분리 측정해드려요.
+          </p>
+        </div>
+
+        <!-- 3. 정확한 칼로리 추정 -->
+        <div class="p-6 rounded-2xl glass-card border border-swim-pool/10 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-swim-pool/10 flex items-center justify-center text-2xl mb-4">🔥</div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">정확한 칼로리 추정</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            영법별 MET 값에 사용자 신체 정보를 반영해 진짜 소비 칼로리를 계산합니다.
+          </p>
+        </div>
+
+        <!-- 4. 핀 보정 분석 (← 스크린샷 자동 분석 자리에 신규) -->
+        <div class="p-6 rounded-2xl glass-card border border-swim-pool/10 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-swim-pool/10 flex items-center justify-center text-2xl mb-4">💪</div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">핀 보정 분석</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            숏핀·롱핀 착용 시 페이스가 빨라지는 효과를 자동 보정해 실제 실력을 정확히 평가해요.
+          </p>
+        </div>
+
+        <!-- 5. 맞춤 코칭 메시지 -->
+        <div class="p-6 rounded-2xl glass-card border border-swim-pool/10 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-swim-pool/10 flex items-center justify-center text-2xl mb-4">💬</div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">맞춤 코칭 메시지</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            오늘 운동 강도, 페이스, 자세 약점에 따라 다음 훈련 방향을 제안해드려요.
+          </p>
+        </div>
+
+        <!-- 6. 수영일지 + 추세 분석 -->
+        <div class="p-6 rounded-2xl glass-card border border-swim-pool/10 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-swim-pool/10 flex items-center justify-center text-2xl mb-4">📅</div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">수영일지 + 추세 분석</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            매일 기록을 쌓으면 주간/월간 변화 그래프, 슈퍼컴펜세이션 시점까지 알려드려요.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Membership — 실제 코드 기반 정확한 등급
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section id="membership" class="py-16 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
+          멤버십 등급
+        </h2>
+        <p class="text-slate-600 text-base">
+          무료여도 다른 앱보다 분석 기능이 풍부해요.<br class="sm:hidden" />
+          더 깊은 분석은 PLUS / PRO 에서.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+
+        <!-- ─── LITE (무료) ─────────────────────────────────────────── -->
+        <div class="p-6 rounded-2xl glass-card border border-slate-300/40 shadow-sm">
+          <div class="text-xs font-bold text-slate-500 mb-1">LITE</div>
+          <div class="text-2xl font-bold text-slate-900 mb-1">무료</div>
+          <p class="text-sm text-slate-500 mb-5">기본 분석부터 탄탄하게</p>
+
+          <ul class="space-y-2.5 text-sm text-slate-700">
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>9가지 정밀 지표 (SWOLF, SPI, SRI, KPE, HRR 등)</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>성별·연령별 SWOLF 등급 객관적 비교</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>4영법 (자유형·배영·평영·접영) 개별 분석</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>핀 사용 시 자동 페이스 보정</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>MET 기반 정밀 칼로리 계산</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>강도 게이지 (최대·안정 심박수 기반)</span></li>
+            <li class="flex items-start gap-2 text-slate-400 pt-2 border-t border-slate-200/60"><span>·</span><span>히스토리 3회 조회 / 광고 표시</span></li>
+          </ul>
+        </div>
+
+        <!-- ─── PLUS ────────────────────────────────────────────────── -->
+        <div class="p-6 rounded-2xl glass-card border border-slate-300/40 shadow-sm">
+          <div class="text-xs font-bold text-swim-pool mb-1">PLUS</div>
+          <div class="text-2xl font-bold text-slate-900 mb-1">월 4,900원</div>
+          <p class="text-sm text-slate-500 mb-5">꾸준히 기록하는 수영인</p>
+
+          <ul class="space-y-2.5 text-sm text-slate-700">
+            <li class="flex items-start gap-2 pb-2 mb-2 border-b border-slate-200/60">
+              <span class="text-swim-pool mt-0.5">✨</span>
+              <span class="font-semibold">LITE의 모든 기능 포함</span>
+            </li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>광고 없는 쾌적한 환경</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>수영 달력 (수영한 날짜·기록 한눈에)</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>히스토리 5회 조회</span></li>
+            <li class="flex items-start gap-2"><span class="text-swim-pool mt-0.5">✓</span><span>종합수영진단 유형 코멘트</span></li>
+          </ul>
+        </div>
+
+        <!-- ─── PRO (추천) ───────────────────────────────────────────── -->
+        <div class="relative p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-700 text-white border-2 border-amber-400 shadow-xl shadow-amber-400/20">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-amber-400 text-slate-900 text-xs font-bold shadow-md">
+            추천
+          </div>
+          <div class="text-xs font-bold text-amber-400 mb-1">PRO</div>
+          <div class="text-2xl font-bold mb-1">월 14,900원</div>
+          <p class="text-sm text-slate-300 mb-5">대회·다이어트 목표가 있는 분</p>
+
+          <ul class="space-y-2.5 text-sm text-slate-100">
+            <li class="flex items-start gap-2 pb-2 mb-2 border-b border-slate-600">
+              <span class="text-amber-400 mt-0.5">💎</span>
+              <span class="font-semibold">PLUS의 모든 기능 포함</span>
+            </li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>대회 D-day · 훈련 페이즈 달력</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>월경 주기 퍼포먼스 분석</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>이번 주 vs 지난 주 거리·페이스 비교</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>월간 분석 — 수영 DNA, 영법별 비중·강도</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>영법별 성장 속도 트래킹</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>나만의 수영 패턴 리포트</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>뱃지 시스템 50가지</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>PRO 전용 코칭 코멘트 전체</span></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>다이어트 심층 분석</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="text-center text-xs text-slate-500 mt-8">
+        가격은 부가세 포함. 결제는 Google Play 인앱 결제로 처리됩니다.<br />
+        구독 해지는 Google Play 스토어에서 언제든 가능합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section id="faq" class="py-16 sm:py-20 bg-white/60 backdrop-blur">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">자주 묻는 질문</h2>
+        <p class="text-slate-600 text-base">궁금한 점을 모았어요</p>
+      </div>
+
+      <div class="space-y-3">
+        <details class="group glass-card rounded-xl border border-swim-pool/10 overflow-hidden">
+          <summary class="cursor-pointer p-5 font-semibold text-slate-900 flex justify-between items-center list-none">
+            삼성헬스 외 다른 워치도 지원하나요?
+            <span class="faq-icon text-swim-pool text-xl">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            현재 베타 버전은 삼성헬스 운동 상세 화면 스크린샷 인식에 최적화되어 있습니다. 다른 워치 사용자는 수동 입력 폼으로 데이터를 입력하실 수 있습니다. 추후 정식 출시 시 삼성헬스 SDK 연동을 통해 자동 동기화를 지원할 예정입니다.
+          </div>
+        </details>
+
+        <details class="group glass-card rounded-xl border border-swim-pool/10 overflow-hidden">
+          <summary class="cursor-pointer p-5 font-semibold text-slate-900 flex justify-between items-center list-none">
+            iOS 버전은 언제 나오나요?
+            <span class="faq-icon text-swim-pool text-xl">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            안드로이드 정식 출시 후 iOS 버전을 준비할 예정입니다. 출시 일정은 베타 테스트 결과에 따라 조정될 수 있어요.
+          </div>
+        </details>
+
+        <details class="group glass-card rounded-xl border border-swim-pool/10 overflow-hidden">
+          <summary class="cursor-pointer p-5 font-semibold text-slate-900 flex justify-between items-center list-none">
+            내 데이터는 어디에 저장되나요?
+            <span class="faq-icon text-swim-pool text-xl">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            수영 기록은 기본적으로 사용자의 기기 내부에 저장됩니다. 회원 정보(이메일, 이름, 멤버십 등급)는 Supabase 보안 서버에 암호화되어 저장됩니다. 자세한 내용은 <a href="privacy.html" class="text-swim-pool underline">개인정보처리방침</a>을 확인해주세요.
+          </div>
+        </details>
+
+        <details class="group glass-card rounded-xl border border-swim-pool/10 overflow-hidden">
+          <summary class="cursor-pointer p-5 font-semibold text-slate-900 flex justify-between items-center list-none">
+            구독을 취소하면 데이터가 삭제되나요?
+            <span class="faq-icon text-swim-pool text-xl">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            아니요. 구독을 취소해도 기존에 입력한 수영 기록은 그대로 유지됩니다. 다만 PRO/PLUS 전용 기능에는 더 이상 접근할 수 없게 됩니다.
+          </div>
+        </details>
+
+        <details class="group glass-card rounded-xl border border-swim-pool/10 overflow-hidden">
+          <summary class="cursor-pointer p-5 font-semibold text-slate-900 flex justify-between items-center list-none">
+            OCR 인식이 잘못 되었어요. 어떻게 하나요?
+            <span class="faq-icon text-swim-pool text-xl">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            인식 결과가 의심스러우면 자동으로 검토 화면이 뜹니다. 거기서 직접 수정하시거나, 아예 수동 입력 폼을 사용하시면 정확한 분석이 가능합니다. 반복적으로 같은 영법이 인식 안 된다면 <a href="#contact" class="text-swim-pool underline">문의</a>로 스크린샷을 보내주세요.
+          </div>
+        </details>
+
+        <details class="group glass-card rounded-xl border border-swim-pool/10 overflow-hidden">
+          <summary class="cursor-pointer p-5 font-semibold text-slate-900 flex justify-between items-center list-none">
+            환불 정책은 어떻게 되나요?
+            <span class="faq-icon text-swim-pool text-xl">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            구독 결제 후 환불은 Google Play의 환불 정책을 따릅니다. 일반적으로 결제 후 48시간 이내 신청 시 자동 환불되며, 그 이후는 Google에 직접 환불 요청을 하셔야 합니다.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Contact (이메일 + 카카오톡)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section id="contact" class="py-16 sm:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">문의하기</h2>
+      <p class="text-slate-600 mb-10">
+        버그 제보, 기능 제안, 협업 문의 등 무엇이든 환영합니다.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <!-- 이메일 -->
+        <a
+          href="mailto:unfiltered.swim.official@gmail.com"
+          class="block p-6 rounded-2xl glass-card border border-swim-pool/20 shadow-sm hover:border-swim-pool/50 hover:shadow-md transition-all"
+        >
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-swim-pool/10 flex items-center justify-center text-2xl">📧</div>
+          <div class="text-xs text-slate-500 mb-1">이메일</div>
+          <div class="text-sm sm:text-base font-bold text-swim-pool-dark break-all">
+            unfiltered.swim.official@gmail.com
+          </div>
+        </a>
+
+        <!-- 카카오톡 채널 -->
+        <a
+          href="http://pf.kakao.com/_DxjlMX"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-6 rounded-2xl bg-[#FEE500] border border-[#FEE500] shadow-sm hover:shadow-md hover:scale-[1.02] transition-all"
+        >
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#3C1E1E]/10 flex items-center justify-center text-2xl">💬</div>
+          <div class="text-xs text-[#3C1E1E]/70 mb-1">카카오톡 채널</div>
+          <div class="text-base font-bold text-[#3C1E1E]">
+            카카오톡 채널 추가
+          </div>
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-500">
+        평일 기준 1~3일 내에 답변드립니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Footer
+  ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="bg-slate-900 text-slate-400 py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start gap-6">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-9 h-9 rounded-lg overflow-hidden bg-white">
+              <img src="icon.png" alt="" class="logo-img" />
+            </div>
+            <span class="font-bold text-white">Unfiltered Swim</span>
+          </div>
+          <p class="text-xs leading-relaxed">
+            나를 읽는 정밀 수영 가이드<br />
+            © 2026 Unfiltered Swim. All rights reserved.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:items-end gap-2 text-xs">
+          <a href="terms.html" class="hover:text-white transition-colors">이용약관</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">개인정보처리방침</a>
+          <a href="#contact" class="hover:text-white transition-colors">문의</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
