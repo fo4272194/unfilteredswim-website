@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>환불정책 — Unfiltered Swim</title>
+  <meta name="description" content="Unfiltered Swim 앱의 환불정책입니다." />
+
+  <link rel="icon" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'swim-pool':      'hsl(200, 80%, 45%)',
+            'swim-pool-dark': 'hsl(200, 80%, 32%)',
+            'swim-teal':      'hsl(178, 68%, 38%)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <style>
+    body {
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: linear-gradient(180deg, hsl(200, 60%, 92%), hsl(200, 55%, 87%));
+      min-height: 100vh;
+    }
+    .gradient-pool { background: linear-gradient(135deg, hsl(200, 80%, 45%), hsl(178, 68%, 38%)); }
+    .glass-card {
+      background: linear-gradient(135deg, hsla(200, 55%, 97%, 0.95), hsla(200, 50%, 94%, 0.85));
+      backdrop-filter: blur(8px);
+    }
+    .logo-img { width:100%; height:100%; object-fit:contain; }
+
+    .prose-custom h2 {
+      font-size: 1.2rem; font-weight: 700; color: hsl(200, 80%, 32%);
+      margin-top: 2rem; margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem; border-bottom: 2px solid hsla(200, 80%, 45%, 0.15);
+    }
+    .prose-custom h3 { font-size: 1rem; font-weight: 600; color: #1E293B; margin-top: 1.1rem; margin-bottom: 0.5rem; }
+    .prose-custom p { margin-bottom: 0.75rem; line-height: 1.8; color: #334155; }
+    .prose-custom ul { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: disc; }
+    .prose-custom ul li { margin-bottom: 0.4rem; line-height: 1.75; color: #334155; }
+    .prose-custom ol { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: decimal; }
+    .prose-custom ol li { margin-bottom: 0.4rem; line-height: 1.75; color: #334155; }
+    .prose-custom strong { color: #0F172A; font-weight: 600; }
+    .prose-custom a { color: hsl(200, 80%, 45%); text-decoration: underline; }
+
+    /* 핵심 요약 카드 */
+    .summary-box {
+      background: linear-gradient(135deg, hsla(200, 80%, 95%, 0.9), hsla(178, 60%, 94%, 0.9));
+      border: 1px solid hsla(200, 80%, 45%, 0.25);
+      border-radius: 1rem;
+      padding: 1.25rem 1.25rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .summary-box h3 {
+      margin-top: 0 !important;
+      color: hsl(200, 80%, 32%) !important;
+      font-size: 0.95rem !important;
+    }
+    .summary-box ul { margin-bottom: 0; }
+    .summary-box ul li { margin-bottom: 0.5rem; }
+  </style>
+</head>
+
+<body class="text-slate-800 antialiased">
+
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-swim-pool/10">
+    <nav class="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl overflow-hidden bg-white shadow-sm">
+          <img src="icon.png" alt="Unfiltered Swim" class="logo-img" />
+        </div>
+        <span class="font-bold text-base text-slate-900">Unfiltered Swim</span>
+      </a>
+      <a href="index.html" class="text-sm text-slate-600 hover:text-swim-pool transition-colors">← 홈으로</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">환불정책</h1>
+    <p class="text-sm text-slate-500 mb-10">시행일: 2026년 5월 4일 · 운영자: 심조(Simjo)</p>
+
+    <div class="glass-card rounded-2xl p-6 sm:p-10 border border-swim-pool/10 prose-custom">
+
+      <!-- 한눈 요약 -->
+      <div class="summary-box">
+        <h3>📌 핵심 요약</h3>
+        <ul>
+          <li><strong>결제 후 48시간 이내</strong> — Google Play 스토어에서 직접 환불을 신청할 수 있습니다.</li>
+          <li><strong>48시간 경과 후</strong> — 「전자상거래 등에서의 소비자보호에 관한 법률」 제17조 제2항에 따라 청약철회가 제한될 수 있으나, 회사 귀책 사유 등 일정한 경우에는 환불이 가능합니다.</li>
+          <li><strong>구독은 언제든 취소 가능</strong>하며, 취소 후에도 결제한 기간 종료일까지는 모든 기능을 이용할 수 있습니다.</li>
+          <li>이용자는 LITE(무료) 등급을 통하여 서비스의 핵심 기능을 사전 체험한 후 유료 등급을 결제할 수 있습니다.</li>
+        </ul>
+      </div>
+
+      <h2>제1조 (목적)</h2>
+      <p>
+        본 정책은 심조(Simjo)(이하 "회사")가 제공하는 Unfiltered Swim 서비스(이하 "서비스")의 유료 구독에 관한 환불의 기준, 절차 및 처리 방법을 규정합니다. 본 정책은 서비스 이용약관 제9조(청약철회 및 환불)의 세부 시행 기준으로 효력을 가지며, 「전자상거래 등에서의 소비자보호에 관한 법률」, 「콘텐츠산업 진흥법」 등 관련 법령을 준수합니다.
+      </p>
+
+      <h2>제2조 (적용 범위)</h2>
+      <p>
+        본 환불정책은 Unfiltered Swim 앱 내에서 Google Play 인앱 결제를 통하여 구매한 다음 상품에 적용됩니다.
+      </p>
+      <ul>
+        <li>PLUS 월간 구독</li>
+        <li>PLUS 연간 구독</li>
+        <li>PRO 월간 구독</li>
+        <li>PRO 연간 구독</li>
+      </ul>
+
+      <h2>제3조 (청약철회권의 행사 및 제한)</h2>
+      <ol>
+        <li>이용자는 「전자상거래 등에서의 소비자보호에 관한 법률」 제17조 제1항에 따라 결제일로부터 <strong>7일 이내</strong>에 청약철회를 신청할 수 있습니다.</li>
+        <li>결제 후 서비스 사용을 개시한 경우, 동법 제17조 제2항 제5호의 규정에 따라 청약철회가 제한될 수 있습니다.</li>
+        <li>회사는 동법 시행령 제21조의2에 따른 청약철회 제한의 사전 조치로서, 이용자가 LITE(무료) 등급을 통하여 서비스의 핵심 분석 지표와 사용 환경을 사전에 체험할 수 있도록 제공합니다. 이는 동 조항에서 정한 "체험용 디지털콘텐츠 제공"에 해당합니다.</li>
+      </ol>
+
+      <h2>제4조 (결제 후 48시간 이내 환불)</h2>
+      <ol>
+        <li>결제 후 48시간 이내에는 이용자가 Google Play 스토어에서 직접 환불을 신청할 수 있습니다. 본 절차는 Google이 자체적으로 운영하는 환불 채널이며, 회사를 거치지 않고 처리됩니다.</li>
+        <li>이용자가 Google Play의 환불 절차를 진행하기 어려운 사정이 있거나 환불이 거부된 경우, 본 정책 제13조의 문의 채널을 통해 회사에 협조를 요청할 수 있으며, 회사는 정당한 사유가 인정되는 경우 Google과 협의하여 환불을 지원합니다.</li>
+      </ol>
+
+      <h2>제5조 (48시간 경과 후 환불)</h2>
+      <ol>
+        <li>결제 후 48시간이 경과한 시점부터는 이용자가 디지털 콘텐츠의 사용을 개시한 것으로 간주되며, 단순 변심에 의한 청약철회가 제한될 수 있습니다.</li>
+        <li>제1항에도 불구하고 다음 각 호의 어느 하나에 해당하는 경우에는 48시간 경과 이후에도 환불이 가능합니다.
+          <ul>
+            <li>회사의 귀책 사유로 인한 결제 오류 또는 권한 미부여</li>
+            <li>동일 상품에 대한 중복 결제</li>
+            <li>본 정책 제7조에서 정한 서비스 장애</li>
+            <li>회사가 사전 고지 없이 핵심 기능을 영구적으로 중단하거나 폐쇄한 경우</li>
+            <li>그 밖에 관련 법령에서 환불을 허용하는 경우</li>
+          </ul>
+        </li>
+        <li>제2항의 사유로 환불을 신청하는 경우, 이용자는 본 정책 제13조의 문의 채널로 결제 영수증과 사유를 첨부하여 신청합니다. 회사는 신청을 접수한 날로부터 영업일 기준 3일 이내에 검토 결과를 회신합니다.</li>
+      </ol>
+
+      <h2>제6조 (구독의 취소와 잔여 기간의 이용)</h2>
+      <ol>
+        <li>이용자는 결제 후 언제든지 Google Play 스토어 → 정기 결제 메뉴에서 구독을 취소할 수 있습니다.</li>
+        <li>구독을 취소하더라도 이미 결제한 기간이 만료되는 시점까지는 결제한 등급의 모든 기능을 그대로 이용할 수 있습니다.</li>
+        <li>다음 결제일이 도래하면 자동 결제가 중단되고 이용자의 계정은 LITE(무료) 등급으로 전환됩니다.</li>
+        <li>회사는 구독 기간 중간에 취소된 잔여 기간에 대하여는 별도의 일할 환산 환불을 제공하지 아니합니다. 다만 본 정책 제5조 또는 제7조의 사유에 해당하는 경우에는 그러하지 아니합니다.</li>
+      </ol>
+
+      <h2>제7조 (서비스 장애에 따른 환불)</h2>
+      <ol>
+        <li>회사의 귀책 사유로 인하여 다음 각 호의 어느 하나에 해당하는 서비스 장애가 발생한 경우, 이용자는 회사에 환불을 청구할 수 있습니다.
+          <ul>
+            <li>이용자가 정상적으로 서비스를 이용할 수 없는 장애가 <strong>48시간 이상 연속</strong>되는 경우</li>
+            <li>핵심 분석 기능이 사전 공지 없이 영구적으로 중단된 경우</li>
+            <li>동일한 유형의 서비스 장애가 <strong>1개월 내 3회 이상</strong> 반복적으로 발생하는 경우</li>
+          </ul>
+        </li>
+        <li>제1항에 따른 환불 금액은 장애 발생 시점부터의 잔여 구독 기간에 해당하는 금액을 일할로 계산하여 산정합니다.</li>
+        <li>천재지변, 통신사 장애, Google 서버 장애, 삼성헬스 등 제3자 서비스 제공자의 장애 등 회사의 통제 범위를 벗어나는 사유로 발생한 장애는 본 조의 적용에서 제외됩니다.</li>
+      </ol>
+
+      <h2>제8조 (환불이 제한되는 경우)</h2>
+      <p>다음 각 호의 어느 하나에 해당하는 경우 환불이 제한될 수 있습니다.</p>
+      <ol>
+        <li>이용자가 부정한 방법으로 결제하거나 서비스를 이용한 경우</li>
+        <li>제3자의 결제 수단을 무단으로 사용하여 결제한 경우</li>
+        <li>이용자가 이미 사용을 개시한 디지털 콘텐츠 부분에 대한 단순 변심 사유의 환불 요청 (본 정책 제5조 단서 제외)</li>
+        <li>이용자가 서비스 이용약관 제10조의 의무를 위반하여 회사가 이용을 제한한 경우</li>
+      </ol>
+
+      <h2>제9조 (환불 처리 절차 및 기간)</h2>
+      <ol>
+        <li>환불이 확정된 경우, 회사는 「전자상거래 등에서의 소비자보호에 관한 법률」 제18조에 따라 영업일 기준 3일 이내에 환불 절차를 개시합니다.</li>
+        <li>실제 환불의 완료까지는 결제 수단(신용카드, 통신사 결제, 간편 결제 등)의 정산 일정에 따라 추가로 영업일 기준 3일에서 7일이 소요될 수 있습니다.</li>
+        <li>Google Play 스토어를 통한 환불은 Google의 환불 처리 정책 및 일정을 따릅니다.</li>
+      </ol>
+
+      <h2>제10조 (가격 변경)</h2>
+      <ol>
+        <li>회사가 구독 가격을 변경하는 경우 변경 시행일 <strong>30일 전</strong>에 앱 내 공지 또는 이메일로 안내합니다.</li>
+        <li>가격 인상에 동의하지 않는 이용자는 다음 결제일 이전에 구독을 취소할 수 있으며, 이 경우 인상 전 가격이 적용된 마지막 결제 기간까지는 정상적으로 이용할 수 있습니다.</li>
+      </ol>
+
+      <h2>제11조 (정책의 변경)</h2>
+      <p>
+        본 환불정책은 관련 법령의 개정, 회사 정책의 변경 등 합리적인 사유에 따라 변경될 수 있습니다. 정책을 변경하는 경우 시행일 <strong>7일 전</strong>(이용자에게 불리한 변경의 경우 <strong>30일 전</strong>)부터 앱 내 공지 또는 이메일을 통하여 안내합니다.
+      </p>
+
+      <h2>제12조 (분쟁 해결)</h2>
+      <p>
+        본 환불정책에 관한 분쟁은 회사와 이용자 간 신의에 따른 협의로 해결하는 것을 원칙으로 합니다. 협의가 이루어지지 않는 경우 한국소비자원, 전자거래분쟁조정위원회 등의 조정을 신청할 수 있으며, 소송에 의한 분쟁 해결은 「민사소송법」에 정한 절차에 따른 관할 법원을 따릅니다.
+      </p>
+
+      <h2>제13조 (문의)</h2>
+      <p>
+        환불 관련 문의는 아래의 채널을 통하여 접수해 주시기 바랍니다. 회사는 영업일 기준 2일 이내에 답변하며, 사안의 복잡성에 따라 추가 검토 기간이 필요한 경우 별도로 안내합니다.
+      </p>
+      <ul>
+        <li><strong>이메일:</strong> <a href="mailto:unfiltered.swim.official@gmail.com">unfiltered.swim.official@gmail.com</a></li>
+        <li><strong>카카오톡 채널:</strong> <a href="http://pf.kakao.com/_DxjlMX" target="_blank" rel="noopener noreferrer">@unfilteredswim</a></li>
+        <li><strong>앱 내:</strong> 설정 &gt; 문의하기</li>
+      </ul>
+
+      <h3 class="mt-8">부칙</h3>
+      <p>본 환불정책은 2026년 5월 4일부터 시행됩니다.</p>
+
+      <p class="mt-8 pt-4 border-t border-slate-200 text-sm text-slate-500">
+        <strong>공고일자:</strong> 2026년 5월 4일<br />
+        <strong>시행일자:</strong> 2026년 5월 4일
+      </p>
+
+    </div>
+
+    <!-- 관련 페이지 -->
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <a href="terms.html" class="block px-6 py-3 rounded-xl bg-white border border-swim-pool/20 text-swim-pool-dark font-semibold text-center hover:border-swim-pool hover:shadow-md transition-all text-sm">
+        📄 이용약관
+      </a>
+      <a href="privacy.html" class="block px-6 py-3 rounded-xl bg-white border border-swim-pool/20 text-swim-pool-dark font-semibold text-center hover:border-swim-pool hover:shadow-md transition-all text-sm">
+        🔒 개인정보처리방침
+      </a>
+      <a href="index.html" class="block px-6 py-3 rounded-xl bg-white border border-swim-pool/20 text-swim-pool-dark font-semibold text-center hover:border-swim-pool hover:shadow-md transition-all text-sm">
+        ← 홈으로
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 mt-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center text-xs">
+      © 2026 심조(Simjo). All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
